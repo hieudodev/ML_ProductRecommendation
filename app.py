@@ -49,7 +49,7 @@ def file_selector(folder_path='.'):
 
 
 def imgs_features():
-    df_2 = pd.read_csv('./Data/model//model2.csv')
+    df_2 = pd.read_csv('../Data/model//model2.csv')
     B = (df_2.iloc[0:,1:]).to_numpy()
     return B
 
@@ -88,12 +88,11 @@ def main():
     choice = st.sidebar.selectbox("select Activity", actives)
     if choice == 'Product':
         st.title("Product Recommendation System")
-        name = names()
         # n = st.selectbox("select Image", name)
         file_uploaded = st.file_uploader("Chọn File", type=["png", "jpg", "jpeg"])
         st.write(file_uploaded.name)
         if file_uploaded is not None:
-            path = ".\Data\Images\img_trains\\" + f'{file_uploaded.name}'
+            path = path_train + f'{file_uploaded.name}'
             im1 = Image.open(file_uploaded)
             newsize = (224, 320)
             image1= im1.resize(newsize)
