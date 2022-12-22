@@ -1,0 +1,10 @@
+selenium
+opencv-python
+keras
+matplotlib
+numpy
+pandas
+Pillow
+scikit_learn
+streamlit
+tensorflow
