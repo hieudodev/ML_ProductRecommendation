@@ -1,4 +1,4 @@
-
+import os
 import streamlit as st
 from keras.applications import vgg16
 # from keras.preprocessing.image import load_img,img_to_array
@@ -40,6 +40,13 @@ def return_image_embedding(img):
      img_features = feat_extractor.predict(processed_image)
      # retrieve products
      return img_features
+    
+def file_selector(folder_path='.'):
+    filenames = os.listdir(folder_path)
+    selected_filename = st.selectbox('Select a file', filenames)
+    return os.path.join(folder_path, selected_filename)
+
+
 
 def imgs_features():
     df_2 = pd.read_csv('./Data/model//model2.csv')
@@ -70,8 +77,8 @@ def retrieve_most_similar_products(given_img, df):
 
 @st.cache()
 def names():
-    list_data = os.listdir('../Data/Images//img_trains')
-    return list_data
+    filename = file_selector()
+    return filename
 
 
 def main():
