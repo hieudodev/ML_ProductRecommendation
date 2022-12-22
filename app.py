@@ -96,7 +96,6 @@ def main():
             st.image(image1, caption='Uploaded Image', use_column_width=False)
             st.write('image',path)
             img = Image.open(file_uploaded)
-            df = load_data()
             retrieve_most_similar_products(path)
 
 
