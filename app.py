@@ -22,7 +22,7 @@ nb_closest_images = 5
 
 @st.cache
 def load_data():
-    df = pd.read_csv('.\Data\model\model.csv')
+    df = pd.read_csv('../Data/model//model.csv')
     df.set_index("Unnamed: 0", inplace=True)
     return df
 
@@ -42,7 +42,7 @@ def return_image_embedding(img):
      return img_features
 
 def imgs_features():
-    df_2 = pd.read_csv('.\Data\model\model2.csv')
+    df_2 = pd.read_csv('./Data/model//model2.csv')
     B = (df_2.iloc[0:,1:]).to_numpy()
     return B
 
@@ -51,7 +51,7 @@ def retrieve_most_similar_products(given_img, df):
     st.set_option('deprecation.showPyplotGlobalUse', False)
     st.error("most similar products: ")
     # st.write(return_image_embedding(given_img))
-    imgs_path = r".\Data\Images\img_trains"
+    imgs_path = r"../Data/Images//img_trains"
     files = [imgs_path+'//' + x for x in os.listdir(imgs_path) if "png" in x]
     A = return_image_embedding(given_img)
     B = imgs_features()
@@ -70,7 +70,7 @@ def retrieve_most_similar_products(given_img, df):
 
 @st.cache()
 def names():
-    list_data = os.listdir('.\Data\Images\img_trains')
+    list_data = os.listdir('../Data/Images//img_trains')
     return list_data
 
 
