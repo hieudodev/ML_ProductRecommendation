@@ -1,4 +1,4 @@
-import cv2
+
 import streamlit as st
 from keras.applications import vgg16
 # from keras.preprocessing.image import load_img,img_to_array
