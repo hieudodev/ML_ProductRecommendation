@@ -54,7 +54,7 @@ def imgs_features():
     return B
 
 
-def retrieve_most_similar_products(given_img, df):
+def retrieve_most_similar_products(given_img):
     st.set_option('deprecation.showPyplotGlobalUse', False)
     st.error("most similar products: ")
     # st.write(return_image_embedding(given_img))
@@ -101,7 +101,7 @@ def main():
             st.write('image',path)
             img = Image.open(file_uploaded)
             df = load_data()
-            retrieve_most_similar_products(path,df)
+            retrieve_most_similar_products(path)
 
 
             
