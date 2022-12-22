@@ -45,7 +45,8 @@ def file_selector(folder_path='.'):
 
 
 def imgs_features():
-    df_2 = pd.read_csv('../Data/model//model2.csv')
+    path = file_selector()
+    df_2 = pd.read_csv(path)
     B = (df_2.iloc[0:,1:]).to_numpy()
     return B
 
@@ -54,7 +55,8 @@ def retrieve_most_similar_products(given_img):
     st.set_option('deprecation.showPyplotGlobalUse', False)
     st.error("most similar products: ")
     # st.write(return_image_embedding(given_img))
-    imgs_path = r"../Data/Images//img_trains"
+#     imgs_path = r"../Data/Images//img_trains"
+    imgs_path = file_selector()
     files = [imgs_path+'//' + x for x in os.listdir(imgs_path) if "png" in x]
     A = return_image_embedding(given_img)
     B = imgs_features()
