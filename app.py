@@ -20,11 +20,7 @@ imgs_model_width, imgs_model_height = 224, 224
 nb_closest_images = 5
 
 
-@st.cache
-def load_data():
-    df = pd.read_csv('../Data/model//model.csv')
-    df.set_index("Unnamed: 0", inplace=True)
-    return df
+
 
 def return_image_embedding(img):
      # load the model
